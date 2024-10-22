@@ -12,6 +12,10 @@ body, html {
 .menu {
     background-color: #333;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
 }
 .menu div {
     display: inline-block;
@@ -36,7 +40,7 @@ body, html {
     display: flex;
     justify-content: center; 
     align-items: center;     
-    height: 100vh;   
+    height: 900px;   
     background-color: rgba(211, 211, 211, 0.792);  
     box-shadow: 2px 2px black;     
 }
@@ -164,7 +168,6 @@ h2{
 }
 @media (max-width: 768px) {
     .menu{
-        padding-bottom: 60px;
         text-align: center;
     }
     .cad {
