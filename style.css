@@ -164,7 +164,8 @@ h2{
 }
 @media (max-width: 768px) {
     .menu{
-        margin-bottom: 30px;
+        padding-bottom: 60px;
+        text-align: center;
     }
     .cad {
         height: auto; 
