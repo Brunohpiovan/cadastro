@@ -21,12 +21,15 @@
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                <p id="resultadocpf" class="error"></p>
                 <label for="email">Email:</label>
                 <input type="email" placeholder="Endereço de E-mail" autocomplete="email" required maxlength="50" >
+                <p id="resultadoemail" class="error"></p>
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required>
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required pattern="\(\d{2}\) \d{5}-\d{4}">
+                <p id="resultadotel" class="error"></p>
             </div>
             <div id="list">
                 <label for="pais">País:</label>
@@ -48,7 +51,7 @@
             <div id="enviar">
                 <input id="validarBtn" type="button" value="Cadastrar">
             </div>
-            <p id="resultado" class="error"></p>
+            
         </div>
     </div>
     <div class="listagem">

@@ -43,7 +43,7 @@ body, html {
 
 .cad {
     width: 500px;
-    height: 700px;
+    height: 750px;
     background-color:gray;
     border-radius: 20px;
     padding: 20px;
@@ -98,8 +98,9 @@ div#check{
     justify-content: center;
     align-items: center;
 }
-#resultado{
-    font-weight: bolder;
+.error{
+    font-weight: 600;
+    padding-left: 10px;
 }
 input[type="button"] {
     width: 50%;

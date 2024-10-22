@@ -1,5 +1,7 @@
 
 const cpfInput = document.getElementById('cpf');
+const emailInput = document.querySelector('input[type="email"]');
+const telefoneInput = document.getElementById('telefone');
 
 cpfInput.addEventListener('input', function (e) {
     let value = cpfInput.value.replace(/\D/g, ''); 
@@ -7,6 +9,13 @@ cpfInput.addEventListener('input', function (e) {
     value = value.replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3"); 
     value = value.replace(/\.(\d{3})(\d)/, ".$1-$2"); 
     cpfInput.value = value; 
+});
+
+telefoneInput.addEventListener('input', function (e) {
+    let value = telefoneInput.value.replace(/\D/g, '');
+    value = value.replace(/^(\d{2})(\d)/, "($1) $2");
+    value = value.replace(/(\d{5})(\d)/, "$1-$2");
+    telefoneInput.value = value;
 });
 
 function validarCPF(cpf){
@@ -26,21 +35,68 @@ function validarCPF(cpf){
         cpf === "99999999999"){
            return false;
     }
-    return true;   
+    let add = 0;
+    for (let i = 0; i < 9; i++)
+        add += parseInt(cpf.charAt(i)) * (10 - i);
+    let rev = 11 - (add % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cpf.charAt(9))) return false;
+
+    add = 0;
+    for (let i = 0; i < 10; i++)
+        add += parseInt(cpf.charAt(i)) * (11 - i);
+    rev = 11 - (add % 11);
+    if (rev === 10 || rev === 11) rev = 0;
+    if (rev !== parseInt(cpf.charAt(10))) return false;
+
+    return true;  
 
 }
 
+function validarEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function validarTelefone(telefone) {
+    const re = /^\(\d{2}\) \d{5}-\d{4}$/;
+    return re.test(telefone);
+}
+
 document.getElementById('validarBtn').addEventListener('click', function() {
-    const cpfInput = document.getElementById('cpf');
     const cpf = cpfInput.value.replace(/\D/g, '');
-    const resultado = document.getElementById('resultado');
+    const resultadocpf = document.getElementById('resultadocpf');
+    const email = emailInput.value;
+    const resultadoeemail = document.getElementById('resultadoemail');
+    const telefone = telefoneInput.value;
+    const resultadotel = document.getElementById('resultadotel');
     if (validarCPF(cpf)) {
-        resultado.textContent = '';
+        resultadocpf.textContent = '';
         cpfInput.style.borderColor = 'initial';
     } else {
-        resultado.textContent = 'CPF inválido!';
-        resultado.style.color = 'red';
+        resultadocpf.textContent = 'CPF inválido!';
+        resultadocpf.style.color = 'red';
         cpfInput.value = '';
         cpfInput.style.borderColor = 'red';
+    }
+
+    if (!validarEmail(email)) {
+        resultadoeemail.textContent = 'Email inválido!';
+        resultadoeemail.style.color = 'red';
+        emailInput.value = '';
+        emailInput.style.borderColor = 'red';
+    } else {
+        resultadoeemail.textContent = '';
+        emailInput.style.borderColor = 'initial';
+    }
+
+    if (!validarTelefone(telefone)) {
+        resultadotel.textContent = 'Telefone inválido!';
+        resultadotel.style.color = 'red';
+        telefoneInput.value = '';
+        telefoneInput.style.borderColor = 'red';
+    } else {
+        telefoneInput.style.borderColor = 'initial';
+        resultadotel.textContent = '';
     }
 });
