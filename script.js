@@ -2,6 +2,7 @@
 const cpfInput = document.getElementById('cpf');
 const emailInput = document.querySelector('input[type="email"]');
 const telefoneInput = document.getElementById('telefone');
+const passInput = document.getElementById('senha');
 
 cpfInput.addEventListener('input', function (e) {
     let value = cpfInput.value.replace(/\D/g, ''); 
@@ -63,6 +64,14 @@ function validarTelefone(telefone) {
     return re.test(telefone);
 }
 
+function validarSenha(senha){
+    if(senha.length<4){
+        return false
+    }else{
+        return true;
+    }
+}
+
 document.getElementById('validarBtn').addEventListener('click', function() {
     const cpf = cpfInput.value.replace(/\D/g, '');
     const resultadocpf = document.getElementById('resultadocpf');
@@ -70,6 +79,8 @@ document.getElementById('validarBtn').addEventListener('click', function() {
     const resultadoeemail = document.getElementById('resultadoemail');
     const telefone = telefoneInput.value;
     const resultadotel = document.getElementById('resultadotel');
+    const senha = passInput.value;
+    const resultadosen = document.getElementById('resultadosen');
     if (validarCPF(cpf)) {
         resultadocpf.textContent = '';
         cpfInput.style.borderColor = 'initial';
@@ -98,5 +109,13 @@ document.getElementById('validarBtn').addEventListener('click', function() {
     } else {
         telefoneInput.style.borderColor = 'initial';
         resultadotel.textContent = '';
+    }
+
+    if(validarSenha(senha)){
+        resultadosen.textContent = '';
+    }else{
+        resultadosen.textContent = 'Senha inválida!';
+        resultadosen.style.color = 'red';
+        passInput.value = '';
     }
 });

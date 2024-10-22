@@ -164,7 +164,7 @@ h2{
 }
 @media (max-width: 768px) {
     .menu{
-        margin-bottom: 15px;
+        margin-bottom: 30px;
     }
     .cad {
         height: auto; 
@@ -181,6 +181,11 @@ h2{
 
     div#campo > input, #list > select {
         width: 100%; 
+    }
+
+    .listagem{
+        padding-top: 30px;
+        margin-top: 30px;
     }
 
     #copy {
