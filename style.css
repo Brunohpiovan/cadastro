@@ -119,6 +119,13 @@ input[type="button"]:hover {
     color: black;
     transition: .5s;
 }
+
+#copy{
+    opacity: .6;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 50px;
+}
 table {
     width: 80%;
     margin: 20px auto;
