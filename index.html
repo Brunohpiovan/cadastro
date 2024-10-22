@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu">
+        <div><a href="#">Home</a></div>
+        <div><a href="#">Serviços</a></div>
+        <div><a href="#">Sobre</a></div>
+        <div><a href="#">Contato</a></div>
+    </div>
+    <div class="container">
+        <div class="cad">
+            <h1>Cadastre-se</h1>
+            <div id="campo">
+                <label for="nome">Nome Completo:</label>
+                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Endereço de E-mail" autocomplete="email" required maxlength="50" >
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required pattern="\(\d{2}\) \d{5}-\d{4}">
+            </div>
+            <div id="list">
+                <label for="pais">País:</label>
+                <select id="pais" name="pais" required>
+                <option value="">Selecione seu país</option>
+                <option value="brasil">Brasil</option>
+                <option value="portugal">Portugal</option>
+                <option value="eua">Estados Unidos</option>
+                <option value="outro">Outro</option>
+      </select>
+            </div>
+            <div id="check">
+                <label>Gênero:</label>
+                <input type="radio" id="masculino" name="genero" value="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="feminino" name="genero" value="feminino">
+                <label for="feminino">Feminino</label>
+            </div>
+            <div id="enviar">
+                <input type="submit" value="Cadastrar">
+            </div>
+            
+        </div>
+    </div>
+    <div class="listagem">
+        <h2>Lista de Funcionarios para Suporte</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João Silva</td>
+                    <td>joao@email.com</td>
+                    <td>(00) 00000-0000</td>
+                </tr>
+                <tr>
+                    <td>Ana Oliveira</td>
+                    <td>ana@email.com</td>
+                    <td>(00) 00000-0000</td>
+                </tr>
+                <tr>
+                    <td>Pedro Costa</td>
+                    <td>pedro@email.com</td>
+                    <td>(00) 00000-0000</td>
+                </tr>
+                <tr>
+                    <td>Maria Souza</td>
+                    <td>maria@email.com</td>
+                    <td>(00) 00000-0000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
