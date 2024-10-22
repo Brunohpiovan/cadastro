@@ -18,7 +18,9 @@
             <h1>Cadastre-se</h1>
             <div id="campo">
                 <label for="nome">Nome Completo:</label>
-                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
                 <label for="email">Email:</label>
                 <input type="email" placeholder="Endereço de E-mail" autocomplete="email" required maxlength="50" >
                 <label for="senha">Senha:</label>
@@ -44,9 +46,9 @@
                 <label for="feminino">Feminino</label>
             </div>
             <div id="enviar">
-                <input type="submit" value="Cadastrar">
+                <input id="validarBtn" type="button" value="Cadastrar">
             </div>
-            
+            <p id="resultado" class="error"></p>
         </div>
     </div>
     <div class="listagem">
@@ -83,5 +85,6 @@
             </tbody>
         </table>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

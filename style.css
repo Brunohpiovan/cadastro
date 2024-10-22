@@ -43,7 +43,7 @@ body, html {
 
 .cad {
     width: 500px;
-    height: 600px;
+    height: 700px;
     background-color:gray;
     border-radius: 20px;
     padding: 20px;
@@ -98,7 +98,10 @@ div#check{
     justify-content: center;
     align-items: center;
 }
-input[type="submit"] {
+#resultado{
+    font-weight: bolder;
+}
+input[type="button"] {
     width: 50%;
     padding: 10px;
     background-color: #000000;
@@ -110,7 +113,7 @@ input[type="submit"] {
     font-size: 16px;
     margin-top: 30px;
   }
-input[type="submit"]:hover {
+input[type="button"]:hover {
     background-color: #acacac;
     color: black;
     transition: .5s;
@@ -156,7 +159,7 @@ h2{
         padding: 15px;
     }
 
-    input[type="submit"] {
+    input[type="button"] {
         width: 70%; 
     }
 
@@ -183,7 +186,7 @@ h2{
         padding: 10px;
     }
 
-    input[type="submit"] {
+    input[type="button"] {
         width: 100%; 
     }
 
