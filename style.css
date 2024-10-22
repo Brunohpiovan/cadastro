@@ -156,52 +156,14 @@ h2{
 }
 @media (max-width: 768px) {
     .cad {
-        width: 90%; 
-        padding: 15px;
+        height: auto; /* Permitir que a altura seja automática em telas menores */
+    }
+
+    h1, h2 {
+        font-size: 1.5em; /* Diminuir o tamanho da fonte em telas menores */
     }
 
     input[type="button"] {
-        width: 70%; 
-    }
-
-    table {
-        width: 95%;
-    }
-
-    th, td {
-        padding: 8px; 
-        font-size: 14px; 
-    }
-}
-
-@media (max-width: 480px) {
-    .menu div {
-        display: block; 
-        text-align: left;
-        padding: 10px;
-        font-size: 15px;
-    }
-
-    .cad {
-        width: 100%;
-        padding: 10px;
-    }
-
-    input[type="button"] {
-        width: 100%; 
-    }
-
-    div#campo > input, #list > select {
-        width: 100%; 
-        margin-left: 0;
-    }
-
-    table {
-        width: 100%; 
-    }
-
-    th, td {
-        font-size: 12px; 
-        padding: 6px;
+        width: 100%; /* Botões ocupam toda a largura disponível */
     }
 }
