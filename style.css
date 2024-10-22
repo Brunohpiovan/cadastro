@@ -83,6 +83,7 @@ div#list{
     height: 30px;
     width: 98%;
     border-radius: 7px;
+    font-size: medium;
 }
 div#check{
     font-weight: bold;
