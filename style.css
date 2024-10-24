@@ -40,14 +40,14 @@ body, html {
     display: flex;
     justify-content: center; 
     align-items: center;     
-    height: 900px;   
+    height: 970px;   
     background-color: rgba(211, 211, 211, 0.792);  
     box-shadow: 2px 2px black;     
 }
 
 .cad {
     width: 500px;
-    height: 750px;
+    height: 850px;
     background-color:gray;
     border-radius: 20px;
     padding: 20px;

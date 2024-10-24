@@ -3,7 +3,7 @@ const cpfInput = document.getElementById('cpf');
 const emailInput = document.querySelector('input[type="email"]');
 const telefoneInput = document.getElementById('telefone');
 const passInput = document.getElementById('senha');
-
+const nameInput = document.getElementById('nome');
 cpfInput.addEventListener('input', function (e) {
     let value = cpfInput.value.replace(/\D/g, ''); 
     value = value.replace(/^(\d{3})(\d)/, "$1.$2"); 
@@ -18,6 +18,14 @@ telefoneInput.addEventListener('input', function (e) {
     value = value.replace(/(\d{5})(\d)/, "$1-$2");
     telefoneInput.value = value;
 });
+
+function validaNome(nome){
+    if(nome=='' || nome.length<5){
+        return false;
+    }else{
+        return true;
+    }
+}
 
 function validarCPF(cpf){
     if(cpf == ''){
@@ -72,50 +80,52 @@ function validarSenha(senha){
     }
 }
 
+//valida os campos quando o botao 'cadastrar é apertado'
 document.getElementById('validarBtn').addEventListener('click', function() {
+    const validateField = (input, validator, errorMessage, resultElement) => {
+        if (validator(input.value)) {
+            resultElement.textContent = '';
+            input.style.borderColor = 'initial';
+        } else {
+            resultElement.textContent = errorMessage;
+            resultElement.style.color = 'red';
+            input.value = '';
+            input.style.borderColor = 'red';
+        }
+    };
+
+    // Nome
+    const nameInput = document.getElementById('nome');
+    const resultadoNome = document.getElementById('resultadonome');
+    validateField(nameInput, validaNome, 'Nome Inválido.', resultadoNome);
+
+    // CPF
+    const cpfInput = document.getElementById('cpf');
     const cpf = cpfInput.value.replace(/\D/g, '');
     const resultadocpf = document.getElementById('resultadocpf');
-    const email = emailInput.value;
-    const resultadoeemail = document.getElementById('resultadoemail');
-    const telefone = telefoneInput.value;
-    const resultadotel = document.getElementById('resultadotel');
-    const senha = passInput.value;
-    const resultadosen = document.getElementById('resultadosen');
-    if (validarCPF(cpf)) {
+    if(validarCPF(cpf)){
         resultadocpf.textContent = '';
         cpfInput.style.borderColor = 'initial';
     } else {
-        resultadocpf.textContent = 'CPF inválido!';
+        resultadocpf.textContent = 'CPF inválido';
         resultadocpf.style.color = 'red';
         cpfInput.value = '';
         cpfInput.style.borderColor = 'red';
     }
+    
 
-    if (!validarEmail(email)) {
-        resultadoeemail.textContent = 'Email inválido!';
-        resultadoeemail.style.color = 'red';
-        emailInput.value = '';
-        emailInput.style.borderColor = 'red';
-    } else {
-        resultadoeemail.textContent = '';
-        emailInput.style.borderColor = 'initial';
-    }
+    // Email
+    const emailInput = document.querySelector('input[type="email"]');
+    const resultadoeemail = document.getElementById('resultadoemail');
+    validateField(emailInput, validarEmail, 'Email inválido!', resultadoeemail);
 
-    if (!validarTelefone(telefone)) {
-        resultadotel.textContent = 'Telefone inválido!';
-        resultadotel.style.color = 'red';
-        telefoneInput.value = '';
-        telefoneInput.style.borderColor = 'red';
-    } else {
-        telefoneInput.style.borderColor = 'initial';
-        resultadotel.textContent = '';
-    }
+    // Telefone
+    const telefoneInput = document.getElementById('telefone');
+    const resultadotel = document.getElementById('resultadotel');
+    validateField(telefoneInput, validarTelefone, 'Telefone inválido!', resultadotel);
 
-    if(validarSenha(senha)){
-        resultadosen.textContent = '';
-    }else{
-        resultadosen.textContent = 'Senha inválida!';
-        resultadosen.style.color = 'red';
-        passInput.value = '';
-    }
+    // Senha
+    const passInput = document.getElementById('senha');
+    const resultadosen = document.getElementById('resultadosen');
+    validateField(passInput, validarSenha, 'Senha inválida!', resultadosen);
 });
